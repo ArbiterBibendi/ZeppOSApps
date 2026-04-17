@@ -43,11 +43,13 @@ Page({
 
     let mappingIndex = 0
     buttonMappings.forEach((mapping) => {
-        console.log(mappingIndex)
       const button = hmUI.createWidget(hmUI.widget.BUTTON, BUTTON_STYLE)
       button.text = mapping.text
       container.addLayoutChild(button, mappingIndex++)
       button.click_func = () => {
+        if (player.getStatus() == player.state.PLAY) {
+          player.stop()
+        }
         player.setSource(player.source.FILE, {file: "raw/" + mapping.path})
         player.prepare()
       }
