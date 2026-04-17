@@ -32,10 +32,10 @@ Page({
   build() {
     logger.debug("page build invoked");
     const player = create(id.PLAYER)
-    player.addEventListener(player.event.PREPARE, function(){
+    player.addEventListener(player.event.PREPARE, () => {
       player.start()
     })
-    player.addEventListener(player.event.COMPLETE, function(){
+    player.addEventListener(player.event.COMPLETE, () => {
       player.stop()
     })
     const container = hmUI.createWidget(hmUI.widget.VIRTUAL_CONTAINER, LAYOUT_STYLE)
